@@ -1,0 +1,30 @@
+.container {
+  background-color: var(--bgSoft);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  gap: 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.container:hover {
+  background-color: #2a374a;
+}
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 14px;
+}
+.title {
+  font-weight: bold;
+}
+.number {
+  font-size: 30px;
+  font-weight: bold;
+}
+.detail {
+  font-size: 14px;
+  font-weight: 300;
+}
