@@ -2,6 +2,7 @@ import Image from "next/image";
 import { menu } from "../../../data";
 import Menu from "./menu/menu";
 import styles from "./sidebar.module.css";
+import { MdLogout } from "react-icons/md";
 
 const Sidebar = () => {
   return (
@@ -29,6 +30,10 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
+      <button className={styles.logout}>
+        <MdLogout />
+        Sair
+      </button>
     </section>
   );
 };
