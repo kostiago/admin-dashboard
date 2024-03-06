@@ -1,7 +1,27 @@
+"use client";
 import { MdSearch, MdArrowUpward } from "react-icons/md";
 import styles from "./processTable.module.css";
+import { useState } from "react";
 
-const ProcessTable = () => {
+import {
+  IoMdArrowDropleftCircle,
+  IoMdArrowDroprightCircle,
+} from "react-icons/io";
+
+const ProcessTable = ({ data, columns }) => {
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [curretPage, setCurrentPage] = useState(1);
+
+  let results = data;
+
+  //PAGINATION
+
+  const startPoint = (curretPage - 1) * rowsPerPage;
+  const endPoint = curretPage * rowsPerPage;
+  const totalPages = Math.ceil(results.length / rowsPerPage);
+
+  results = results.slice(startPoint, endPoint);
+
   return (
     <section className={styles.table}>
       <div className={styles.header}>
@@ -16,79 +36,48 @@ const ProcessTable = () => {
         </div>
       </div>
 
-      <section className={styles.body}>
-        <table className={styles.tab}>
-          <thead className={styles.thead}>
+      <section className={styles.CPDataTable}>
+        <table>
+          <thead>
             <tr>
-              <th>
-                Nº Processo
-                <span className={styles.icon}>
-                  <MdArrowUpward />
-                </span>
-              </th>
-
-              <th>
-                Tipo
-                <span className={styles.icon}>
-                  <MdArrowUpward />
-                </span>
-              </th>
-
-              <th>
-                Cidade
-                <span className={styles.icon}>
-                  <MdArrowUpward />
-                </span>
-              </th>
-
-              <th>
-                Cliente
-                <span className={styles.icon}>
-                  <MdArrowUpward />
-                </span>
-              </th>
-
-              <th>
-                Parte Contrária
-                <span className={styles.icon}>
-                  <MdArrowUpward />
-                </span>
-              </th>
+              {columns.map((column) => (
+                <th key={`columns${column.field}`}>{column.title}</th>
+              ))}
             </tr>
           </thead>
 
-          <tbody className={styles.tbody}>
-            <tr>
-              <td> 100205</td>
-              <td>Civil</td>
-              <td> Seoul </td>
-              <td> Flávia Regina </td>
-              <td>
-                <p class="status delivered">Samira - Juri Vendas</p>
-              </td>
-            </tr>
-
-            <tr>
-              <td> 100205</td>
-              <td>Civil Criminal </td>
-              <td> Seoul </td>
-              <td> Flávia Regina </td>
-              <td>
-                <p class="status delivered">Samira - Juri Vendas</p>
-              </td>
-            </tr>
-
-            <tr>
-              <td> 100205</td>
-              <td>Civil</td>
-              <td> Seoul </td>
-              <td> Flávia Regina </td>
-              <td>
-                <p class="status delivered">Samira - Juri Vendas</p>
-              </td>
-            </tr>
+          <tbody>
+            {results.map((dataRow, index) => (
+              <tr key={`data${index}`}>
+                {columns.map((column) => (
+                  <td>{dataRow[column.field]}</td>
+                ))}
+              </tr>
+            ))}
           </tbody>
         </table>
+        <footer>
+          <div className={styles.pagination}>
+            <button
+              onClick={() => {
+                if (curretPage > 1) {
+                  setCurrentPage(curretPage - 1);
+                }
+              }}
+            >
+              <IoMdArrowDropleftCircle size={30} className={styles.icon} />
+            </button>
+            <button
+              onClick={() => {
+                if (curretPage < totalPages) {
+                  setCurrentPage(curretPage + 1);
+                }
+              }}
+            >
+              <IoMdArrowDroprightCircle size={30} className={styles.icon} />
+            </button>
+          </div>
+        </footer>
       </section>
     </section>
   );
