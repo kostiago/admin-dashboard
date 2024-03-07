@@ -129,7 +129,6 @@ export const processTable = [
 
 export const userTable = [
   {
-    id: 1,
     name: "Flavia Regina",
     contact: "regina@email.com",
     processCity: "São Paulo",

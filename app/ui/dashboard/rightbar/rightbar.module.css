@@ -36,3 +36,63 @@
   outline: none;
   color: var(--text);
 }
+
+/*COMEÇA AQUI*/
+.accordion {
+  margin-top: 30px;
+  padding: 0 0 10px 0;
+}
+
+.titleAccordeon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.item {
+  background: #f0ebe1;
+  padding: 10px 20px;
+  margin-bottom: 5px;
+}
+.titleAccordeon h2 {
+  color: var(--textSoft);
+  margin-right: 10px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.titleAccordeon,
+.contact,
+.city,
+.process {
+  border-bottom: 1px solid #dadada;
+  margin-top: 5px;
+  padding: 10px 0;
+}
+
+.subtitle {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+
+.text {
+  color: var(--textSoft);
+  font-size: 17px;
+}
+
+.content {
+  color: #8b7f75;
+  max-height: 0px;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+.content.show {
+  height: auto;
+  max-height: 9999px;
+  transition: all 0.5s cubic-bezier(1, 0, 1, 0);
+}
