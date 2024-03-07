@@ -126,3 +126,31 @@ export const processTable = [
     oppositePartyProcess: "Samira Costa",
   },
 ];
+
+export const userTable = [
+  {
+    id: 1,
+    name: "Flavia Regina",
+    contact: "regina@email.com",
+    processCity: "São Paulo",
+    processClient: "1002030",
+  },
+  {
+    name: "Regina Maria",
+    contact: "regina@email.com",
+    processCity: "São Paulo",
+    processClient: "1002030",
+  },
+  {
+    name: "JUrid Contabilidade",
+    contact: "regina@email.com",
+    processCity: "São Paulo",
+    processClient: "1002030",
+  },
+  {
+    name: "Flavia Regina",
+    contact: "regina@email.com",
+    processCity: "São Paulo",
+    processClient: "1002030",
+  },
+];

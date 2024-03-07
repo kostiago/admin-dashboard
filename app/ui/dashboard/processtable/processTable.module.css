@@ -40,17 +40,14 @@
 .CPDataTable {
   max-width: 950px;
   margin: 20px 0;
+  border: 1px solid white;
+  border-radius: 10px;
 }
 .CPDataTable table {
   border-collapse: collapse;
   width: 100%;
 }
 
-.CPDataTable table thead {
-  border: 1px solid #2f9c95;
-
-  font-size: 14px;
-}
 .CPDataTable table td,
 .CPDataTable table th {
   text-align: left;
@@ -60,6 +57,15 @@
   padding: 10px 15px;
 }
 
+.CPDataTable table th button {
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: var(--textSoft);
+}
 .CPDataTable table tbody {
   font-size: 13px;
 }
@@ -67,7 +73,7 @@
   padding: 10px 0px;
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .CPDataTable footer .pagination {

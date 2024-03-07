@@ -1,7 +1,8 @@
 import Card from "../ui/dashboard/card/card";
 import ProcessTable from "../ui/dashboard/processtable/processTable";
 import styles from "../ui/dashboard/dashboard.module.css";
-import { processTable } from "../data";
+import { processTable, userTable } from "../data";
+import RightBar from "../ui/dashboard/rightbar/rightbar";
 
 const Dashboard = () => {
   const COLUMNS = [
@@ -30,6 +31,18 @@ const Dashboard = () => {
       field: "oppositePartyProcess",
     },
   ];
+  const COLUMNSUSER = [
+    {
+      title: "Nome",
+      field: "name",
+    },
+
+    {
+      title: "Contato",
+      field: "contact",
+    },
+  ];
+
   return (
     <section className={styles.wrapper}>
       <div className={styles.main}>
@@ -42,7 +55,9 @@ const Dashboard = () => {
           <ProcessTable data={processTable} columns={COLUMNS} />
         </div>
       </div>
-      <div className={styles.side}> RightBar</div>
+      <div className={styles.side}>
+        <RightBar />
+      </div>
     </section>
   );
 };

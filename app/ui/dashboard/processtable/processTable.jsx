@@ -1,7 +1,8 @@
 "use client";
-import { MdSearch, MdArrowUpward } from "react-icons/md";
+import { MdSearch } from "react-icons/md";
 import styles from "./processTable.module.css";
 import { useState } from "react";
+import { CiMenuKebab } from "react-icons/ci";
 
 import {
   IoMdArrowDropleftCircle,
@@ -12,10 +13,37 @@ const ProcessTable = ({ data, columns }) => {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [curretPage, setCurrentPage] = useState(1);
 
+  const [sortColumn, setSortColumn] = useState("");
+  const [sortOrder, setSortOrder] = useState("asc");
+
+  const [searchTerm, setSearchTerm] = useState("");
+
   let results = data;
 
-  //PAGINATION
+  // SEARCH BAR
+  if (searchTerm !== "") {
+    results = results.filter((dataRow) => {
+      return Object.values(dataRow).some((value) =>
+        value
+          .toString()
+          .toLowerCase()
+          .includes(searchTerm.toString().toLowerCase())
+      );
+    });
+  }
+  //SORTING
+  if (sortColumn !== "") {
+    results = results.sort((firstRow, otherRow) => {
+      return firstRow[sortColumn]
+        .toString()
+        .localeCompare(otherRow[sortColumn].toString());
+    });
 
+    if (sortOrder === "desc") {
+      results = results.reverse();
+    }
+  }
+  //PAGINATION
   const startPoint = (curretPage - 1) * rowsPerPage;
   const endPoint = curretPage * rowsPerPage;
   const totalPages = Math.ceil(results.length / rowsPerPage);
@@ -28,9 +56,10 @@ const ProcessTable = ({ data, columns }) => {
         <h2 className={styles.title}>Processos Recentes</h2>
         <div className={styles.search}>
           <input
-            type="search"
+            type="text"
             placeholder="Pesquise um processo..."
             className={styles.input}
+            onKeyUp={(e) => setSearchTerm(e.target.value)}
           />
           <MdSearch size={20} />
         </div>
@@ -41,7 +70,24 @@ const ProcessTable = ({ data, columns }) => {
           <thead>
             <tr>
               {columns.map((column) => (
-                <th key={`columns${column.field}`}>{column.title}</th>
+                <th key={`columns${column.field}`}>
+                  <button
+                    onClick={() => {
+                      if (sortColumn === column.field) {
+                        if (sortOrder === "asc") {
+                          setSortOrder("desc");
+                        } else {
+                          setSortOrder("asc");
+                        }
+                      } else {
+                        setSortColumn(column.field);
+                        setSortOrder("asc");
+                      }
+                    }}
+                  >
+                    {column.title}
+                  </button>
+                </th>
               ))}
             </tr>
           </thead>
