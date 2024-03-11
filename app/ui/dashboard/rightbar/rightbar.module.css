@@ -1,7 +1,9 @@
 .table {
-  background-color: var(--bgSoft);
+  background-color: var(--bgSoftAlternative);
   padding: 20px;
   border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
 }
 
 .header {
@@ -51,14 +53,16 @@
 }
 
 .item {
-  background: #f0ebe1;
-  padding: 10px 20px;
+  background: #d2eafb;
+  padding: 5px 20px;
   margin-bottom: 5px;
+  border-radius: 10px;
 }
+
 .titleAccordeon h2 {
   color: var(--textSoft);
   margin-right: 10px;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 1;
 }
 
@@ -66,22 +70,20 @@
 .contact,
 .city,
 .process {
-  border-bottom: 1px solid #dadada;
   margin-top: 5px;
   padding: 10px 0;
 }
 
 .subtitle {
   color: var(--text);
-  font-weight: 600;
-  font-size: 1.2rem;
+  font-weight: bold;
+  font-size: 12px;
   text-transform: uppercase;
-  padding: 10px 0;
 }
 
 .text {
   color: var(--textSoft);
-  font-size: 17px;
+  font-size: 14px;
 }
 
 .content {
@@ -95,4 +97,31 @@
   height: auto;
   max-height: 9999px;
   transition: all 0.5s cubic-bezier(1, 0, 1, 0);
+}
+
+.icon {
+  color: var(--bgSoft);
+}
+
+.searchByLetter {
+  padding-bottom: 20px;
+}
+.btn {
+  width: 22px;
+  height: 22px;
+  color: var(--textSoft);
+  background-color: #d2eafb;
+  text-decoration: none;
+  font-size: 14px;
+
+  margin-bottom: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+}
+
+.btn:hover {
+  background: transparent;
+  border: 1px solid grey;
 }

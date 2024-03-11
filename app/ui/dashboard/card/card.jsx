@@ -1,13 +1,16 @@
 import { MdSupervisedUserCircle } from "react-icons/md";
 import styles from "./card.module.css";
+import { processTable, userTable } from "@/app/data";
 
-const Card = () => {
+const Card = ({ type, quantity, backgroundColor }) => {
   return (
-    <section className={styles.container}>
-      <MdSupervisedUserCircle size={24} />
+    <section className={`${styles.container} ${styles[type]}`}>
+      <MdSupervisedUserCircle size={24} className={styles.icon} />
       <div className={styles.text}>
-        <span className={styles.title}>Total Clientes Cadastrados</span>
-        <span className={styles.number}>900</span>
+        <span className={styles.title}>
+          {type == "users" ? "Clientes Cadastrados" : "Processos Cadastrados"}
+        </span>
+        <span className={styles.number}>{quantity}</span>
         <span className={styles.detail}>Saiba mais</span>
       </div>
     </section>

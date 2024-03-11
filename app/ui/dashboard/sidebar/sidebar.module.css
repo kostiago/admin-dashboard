@@ -25,7 +25,7 @@
 }
 
 .userTitle {
-  color: var(--textSoft);
+  color: #eff4fb;
 }
 
 .list {
@@ -33,7 +33,7 @@
 }
 
 .cat {
-  color: var(--textSoft);
+  color: #eff4fb;
   font-weight: bold;
   font-size: 13px;
   margin: 10px 0px;

@@ -1,21 +1,24 @@
 .container {
-  background-color: var(--bgSoft);
+  background-color: #ffefe7;
   padding: 20px;
   border-radius: 10px;
   display: flex;
   gap: 20px;
   cursor: pointer;
   width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
 }
 
-.container:hover {
-  background-color: #2a374a;
+.icon {
+  color: var(--bgSoft);
 }
 .text {
   display: flex;
   flex-direction: column;
   gap: 20px;
   font-size: 14px;
+  color: var(--textSoft);
 }
 .title {
   font-weight: bold;
@@ -27,4 +30,21 @@
 .detail {
   font-size: 14px;
   font-weight: 300;
+}
+
+.container.users {
+  background-color: #f7fafc; /* Cor de fundo para usuários */
+}
+
+.container.processes {
+  background-color: #f1f1f1; /* Cor de fundo para processos */
+}
+
+/* Efeito de hover para cada tipo de card */
+.container.users:hover {
+  background-color: #d2eafb; /* Cor de fundo ao passar o mouse para usuários */
+}
+
+.container.processes:hover {
+  background-color: #e0e0e0; /* Cor de fundo ao passar o mouse para processos */
 }

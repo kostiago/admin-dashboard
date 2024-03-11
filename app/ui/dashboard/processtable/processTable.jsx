@@ -2,8 +2,8 @@
 import { MdSearch } from "react-icons/md";
 import styles from "./processTable.module.css";
 import { useState } from "react";
-import { CiMenuKebab } from "react-icons/ci";
 
+import { BiDotsVertical } from "react-icons/bi";
 import {
   IoMdArrowDropleftCircle,
   IoMdArrowDroprightCircle,
@@ -98,6 +98,10 @@ const ProcessTable = ({ data, columns }) => {
                 {columns.map((column) => (
                   <td>{dataRow[column.field]}</td>
                 ))}
+
+                <button className={styles.dots}>
+                  <BiDotsVertical />
+                </button>
               </tr>
             ))}
           </tbody>

@@ -4,11 +4,16 @@ import styles from "./rightbar.module.css";
 import { MdSearch } from "react-icons/md";
 import { userTable } from "../../../data";
 import { useState } from "react";
-import { IoMdAddCircleOutline } from "react-icons/io";
-import { GrSubtractCircle } from "react-icons/gr";
+import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 
-const RightBar = () => {
+const RightBar = ({ data, columns }) => {
   const [selected, setSelected] = useState();
+
+  const [searchByLetter, setSearchByLetter] = useState("");
+
+  let results = data;
+
+  // SEARCH BY LETTER
 
   const toggle = (i) => {
     if (selected == i) {
@@ -17,11 +22,25 @@ const RightBar = () => {
     setSelected(i);
   };
 
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   return (
     <section className={styles.table}>
       <div className={styles.header}>
         <h2 className={styles.title}>Clientes Recentes</h2>
       </div>
+
+      <div className={styles.searchByLetter}>
+        {alphabet.split("").map((letter, index) => (
+          <button
+            className={`${styles.btn} ${styles.myBtn}`}
+            key={index}
+            onClick={() => setSearchByLetter(letter)}
+          >
+            {letter}
+          </button>
+        ))}
+      </div>
+
       <div className={styles.search}>
         <input
           type="text"
@@ -39,9 +58,9 @@ const RightBar = () => {
 
               <span>
                 {selected == i ? (
-                  <GrSubtractCircle size={20} />
+                  <CiCircleMinus size={20} className={styles.icon} />
                 ) : (
-                  <IoMdAddCircleOutline size={20} />
+                  <CiCirclePlus size={20} className={styles.icon} />
                 )}
               </span>
             </div>

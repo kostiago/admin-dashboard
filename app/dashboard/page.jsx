@@ -5,6 +5,9 @@ import { processTable, userTable } from "../data";
 import RightBar from "../ui/dashboard/rightbar/rightbar";
 
 const Dashboard = () => {
+  const quantUser = userTable.length;
+  const quantProcess = processTable.length;
+
   const COLUMNS = [
     {
       title: "Nº Processo",
@@ -31,24 +34,13 @@ const Dashboard = () => {
       field: "oppositePartyProcess",
     },
   ];
-  const COLUMNSUSER = [
-    {
-      title: "Nome",
-      field: "name",
-    },
-
-    {
-      title: "Contato",
-      field: "contact",
-    },
-  ];
 
   return (
     <section className={styles.wrapper}>
       <div className={styles.main}>
         <div className={styles.card}>
-          <Card />
-          <Card />
+          <Card type="processes" quantity={quantProcess} />
+          <Card type="users" quantity={quantUser} />
         </div>
 
         <div className={styles.process}>

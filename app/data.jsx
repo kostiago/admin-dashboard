@@ -125,6 +125,130 @@ export const processTable = [
     processClient: "Flavia Regina",
     oppositePartyProcess: "Samira Costa",
   },
+  {
+    processNumber: "1002031",
+    processType: "Criminal Civil",
+    processCity: "São Paulo",
+    processClient: "Regina Maria",
+    oppositePartyProcess: "PrestContas",
+  },
+  {
+    processNumber: "1002032",
+    processType: "Trabalhista Civil",
+    processCity: "João Pessoa",
+    processClient: "Maria Elena",
+    oppositePartyProcess: "INSS",
+  },
+
+  {
+    processNumber: "1002033",
+    processType: "Civil/Ação Cautelar",
+    processCity: "São Paulo",
+    processClient: "Flavia Regina",
+    oppositePartyProcess: "Samira - JUrid",
+  },
+
+  {
+    processNumber: "1002030",
+    processType: "Criminal",
+    processCity: "São Paulo",
+    processClient: "Flavia Regina",
+    oppositePartyProcess: "Samira Costa",
+  },
+
+  {
+    processNumber: "1002030",
+    processType: "Criminal",
+    processCity: "São Paulo",
+    processClient: "Flavia Regina",
+    oppositePartyProcess: "Samira Costa",
+  },
+
+  {
+    processNumber: "1002030",
+    processType: "Criminal",
+    processCity: "São Paulo",
+    processClient: "Flavia Regina",
+    oppositePartyProcess: "Samira Costa",
+  },
+
+  {
+    processNumber: "1002030",
+    processType: "Criminal",
+    processCity: "São Paulo",
+    processClient: "Flavia Regina",
+    oppositePartyProcess: "Samira Costa",
+  },
+
+  {
+    processNumber: "1002030",
+    processType: "Criminal",
+    processCity: "São Paulo",
+    processClient: "Flavia Regina",
+    oppositePartyProcess: "Samira Costa",
+  },
+  {
+    processNumber: "1002031",
+    processType: "Criminal Civil",
+    processCity: "São Paulo",
+    processClient: "Regina Maria",
+    oppositePartyProcess: "PrestContas",
+  },
+  {
+    processNumber: "1002032",
+    processType: "Trabalhista Civil",
+    processCity: "João Pessoa",
+    processClient: "Maria Elena",
+    oppositePartyProcess: "INSS",
+  },
+
+  {
+    processNumber: "1002033",
+    processType: "Civil/Ação Cautelar",
+    processCity: "São Paulo",
+    processClient: "Flavia Regina",
+    oppositePartyProcess: "Samira - JUrid",
+  },
+
+  {
+    processNumber: "1002030",
+    processType: "Criminal",
+    processCity: "São Paulo",
+    processClient: "Flavia Regina",
+    oppositePartyProcess: "Samira Costa",
+  },
+
+  {
+    processNumber: "1002030",
+    processType: "Criminal",
+    processCity: "São Paulo",
+    processClient: "Flavia Regina",
+    oppositePartyProcess: "Samira Costa",
+  },
+
+  {
+    processNumber: "1002030",
+    processType: "Criminal",
+    processCity: "São Paulo",
+    processClient: "Flavia Regina",
+    oppositePartyProcess: "Samira Costa",
+  },
+
+  {
+    processNumber: "1002030",
+    processType: "Criminal",
+    processCity: "São Paulo",
+    processClient: "Flavia Regina",
+    oppositePartyProcess: "Samira Costa",
+  },
+
+  {
+    processNumber: "1002030",
+    processType: "Criminal",
+    processCity: "São Paulo",
+    processClient: "Flavia Regina",
+    oppositePartyProcess: "Samira Costa",
+  },
 ];
 
 export const userTable = [

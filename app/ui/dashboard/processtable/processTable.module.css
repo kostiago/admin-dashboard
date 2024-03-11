@@ -1,5 +1,5 @@
 .table {
-  background-color: var(--bgSoft);
+  background-color: var(--bgSoftAlternative);
   padding: 20px;
   border-radius: 10px;
 }
@@ -23,7 +23,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background-color: #2e374a;
+  background-color: #182536;
   padding: 10px;
   border-radius: 10px;
 }
@@ -40,7 +40,7 @@
 .CPDataTable {
   max-width: 950px;
   margin: 20px 0;
-  border: 1px solid white;
+
   border-radius: 10px;
 }
 .CPDataTable table {
@@ -68,7 +68,16 @@
 }
 .CPDataTable table tbody {
   font-size: 13px;
+  color: var(--textSoft);
 }
+
+.dots {
+  cursor: pointer;
+  border-radius: 10px;
+  background: none;
+  border: none;
+}
+
 .CPDataTable footer {
   padding: 10px 0px;
   display: flex;
@@ -84,7 +93,7 @@
   padding: 5px;
   cursor: pointer;
   background: none;
-  color: white;
+  color: var(--bgSoft);
 }
 
 .icon:hover {
