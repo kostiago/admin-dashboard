@@ -261,18 +261,21 @@ export const userTable = [
   },
 
   {
+    id: 2,
     name: "Regina Maria",
     contact: "regina@email.com",
     processCity: "São Paulo",
     processClient: "1002030",
   },
   {
+    id: 3,
     name: "JUrid Contabilidade",
     contact: "regina@email.com",
     processCity: "São Paulo",
     processClient: "1002030",
   },
   {
+    id: 4,
     name: "Flavia Regina",
     contact: "regina@email.com",
     processCity: "São Paulo",

@@ -2,6 +2,7 @@
 import { usePathname } from "next/navigation";
 import styles from "./navbar.module.css";
 import { MdNotifications, MdSearch } from "react-icons/md";
+import Image from "next/image";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -22,6 +23,19 @@ const Navbar = () => {
         <div className="icons">
           {" "}
           <MdNotifications size={20} />
+        </div>
+        <div className={styles.user}>
+          <Image
+            className={styles.userImage}
+            src="/noavatar.png"
+            alt=""
+            width="50"
+            height="50"
+          />
+          <div className={styles.userDetail}>
+            <span className={styles.username}>Tiago Costa</span>
+            <span className={styles.userTitle}>Administrador</span>
+          </div>
         </div>
       </div>
     </section>

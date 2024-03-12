@@ -22,10 +22,40 @@
 }
 
 .open .content {
-  height: 150px;
+  height: 160px;
   padding: 10px;
   border: 1px solid #d2eafb;
   border-top: 0;
   color: var(--textSoft);
   font-weight: 600;
+}
+
+.timelineBox {
+  border-left: 2px solid black;
+}
+
+.timelineContent {
+  position: relative;
+  padding-left: 27px;
+}
+
+.timelineContent div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -10.5px;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.contentTwo span {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.contentTwo p {
+  font-size: 16px;
+  margin: 4px 0;
 }

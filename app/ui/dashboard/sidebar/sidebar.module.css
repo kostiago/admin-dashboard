@@ -10,11 +10,6 @@
   margin-bottom: 20px;
 }
 
-.userImage {
-  border-radius: 50%;
-  object-fit: cover;
-}
-
 .userDetail {
   display: flex;
   flex-direction: column;
@@ -22,10 +17,12 @@
 
 .username {
   font-weight: 900;
+  font-size: 20px;
 }
 
 .userTitle {
   color: #eff4fb;
+  font-size: 12px;
 }
 
 .list {

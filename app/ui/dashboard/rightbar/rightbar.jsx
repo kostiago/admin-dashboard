@@ -59,8 +59,10 @@ const RightBar = () => {
             <Accordion
               id={index}
               key={index}
-              title={list.name}
-              content={list.contact}
+              name={list.name}
+              contact={list.contact}
+              city={list.processCity}
+              client={list.processClient}
               handleClick={handleClick}
               isOpen={accordionStatus[index]}
             />

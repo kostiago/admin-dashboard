@@ -98,10 +98,6 @@ const ProcessTable = ({ data, columns }) => {
                 {columns.map((column) => (
                   <td>{dataRow[column.field]}</td>
                 ))}
-
-                <button className={styles.dots}>
-                  <BiDotsVertical />
-                </button>
               </tr>
             ))}
           </tbody>

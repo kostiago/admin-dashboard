@@ -10,14 +10,14 @@ const Sidebar = () => {
       <div className={styles.user}>
         <Image
           className={styles.userImage}
-          src="/noavatar.png"
+          src="/group.svg"
           alt=""
           width="50"
           height="50"
         />
         <div className={styles.userDetail}>
-          <span className={styles.username}>Tiago Costa</span>
-          <span className={styles.userTitle}>Administrador</span>
+          <span className={styles.username}>CUBOS</span>
+          <span className={styles.userTitle}>Gerenciamento de clientes</span>
         </div>
       </div>
       <ul className={styles.list}>
