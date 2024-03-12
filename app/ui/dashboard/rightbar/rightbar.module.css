@@ -40,6 +40,10 @@
 }
 
 /*COMEÇA AQUI*/
+
+.wrapper {
+  margin-top: 30px;
+}
 .accordion {
   margin-top: 30px;
   padding: 0 0 10px 0;

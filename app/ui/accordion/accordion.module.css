@@ -1,0 +1,31 @@
+.accordion {
+  margin-bottom: 5px;
+}
+
+.accordion .header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 18px;
+  background-color: #d2eafb;
+  cursor: pointer;
+  color: var(--textSoft);
+  font-weight: 600;
+}
+
+.icon {
+  color: var(--bgSoft);
+}
+.accordion .content {
+  height: 0;
+  overflow: hidden;
+}
+
+.open .content {
+  height: 150px;
+  padding: 10px;
+  border: 1px solid #d2eafb;
+  border-top: 0;
+  color: var(--textSoft);
+  font-weight: 600;
+}

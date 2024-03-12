@@ -1,0 +1,105 @@
+.timeline {
+  width: 90%;
+  margin: 30px auto;
+  line-height: 1.5rem;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.timeline,
+.timeline *,
+.timeline *::before *::after {
+  box-sizing: border-box;
+}
+
+.timeline::before {
+  content: "";
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  background-color: var(--bgSoft);
+  left: 50%;
+  top: 0;
+}
+.item {
+  background: #d2eafb;
+  padding: 5px 20px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.content {
+  width: 45%;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.titleAccordeon h2 {
+  color: var(--textSoft);
+  margin-right: 10px;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.titleAccordeon,
+.contact,
+.city,
+.process {
+  margin-top: 5px;
+  padding: 10px 0;
+}
+
+.subtitle {
+  color: var(--text);
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.text {
+  color: var(--textSoft);
+  font-size: 14px;
+}
+
+.content {
+  color: #8b7f75;
+  max-height: 0px;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+.content.show {
+  height: auto;
+  max-height: 9999px;
+  transition: all 0.5s cubic-bezier(1, 0, 1, 0);
+}
+
+.icon {
+  color: var(--bgSoft);
+}
+
+.searchByLetter {
+  padding-bottom: 20px;
+}
+.btn {
+  width: 22px;
+  height: 22px;
+  color: var(--textSoft);
+  background-color: #d2eafb;
+  text-decoration: none;
+  font-size: 14px;
+
+  margin-bottom: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+}
+
+.btn:hover {
+  background: transparent;
+  border: 1px solid grey;
+}

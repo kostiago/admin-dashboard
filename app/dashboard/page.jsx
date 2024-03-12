@@ -35,6 +35,13 @@ const Dashboard = () => {
     },
   ];
 
+  const COLUMNS_USER = [
+    {
+      title: "UM nome",
+      field: "name",
+    },
+  ];
+
   return (
     <section className={styles.wrapper}>
       <div className={styles.main}>
@@ -48,7 +55,7 @@ const Dashboard = () => {
         </div>
       </div>
       <div className={styles.side}>
-        <RightBar />
+        <RightBar data={processTable} columns={COLUMNS} />
       </div>
     </section>
   );
