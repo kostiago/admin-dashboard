@@ -29,9 +29,11 @@ const Users = () => {
     },
   ];
   return (
-    <div>
-      <Table data={userTable} columns={COLUMNS} />
-    </div>
+    <section>
+      <div>
+        <Table data={userTable} columns={COLUMNS} />
+      </div>
+    </section>
   );
 };
 

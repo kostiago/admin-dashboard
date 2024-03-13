@@ -281,4 +281,25 @@ export const userTable = [
     processCity: "São Paulo",
     processClient: "1002030",
   },
+  {
+    id: 5,
+    name: "Poline Moura",
+    contact: "poli@email.com",
+    processCity: "João Pessoa/PB",
+    processClient: "1002030",
+  },
+  {
+    id: 6,
+    name: "Cassio Advocacia",
+    contact: "Cassio.adv@email.com",
+    processCity: "Recife",
+    processClient: "1002030",
+  },
+  {
+    id: 7,
+    name: "Flavia Regina",
+    contact: "regina@email.com",
+    processCity: "São Paulo",
+    processClient: "1002030",
+  },
 ];

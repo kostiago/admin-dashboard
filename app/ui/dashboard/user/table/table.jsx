@@ -9,6 +9,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { CiEdit } from "react-icons/ci";
 import { TbGridDots } from "react-icons/tb";
+import Pagination from "../../pagination/pagination";
 
 const Table = ({ data, columns }) => {
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -35,8 +36,6 @@ const Table = ({ data, columns }) => {
     <section className={styles.container}>
       <div className={styles.top}>
         <div className={styles.header}>
-          <TbGridDots color="#000" />
-          <h2 className={styles.title}>Clientes Cadastrados</h2>
           <div className={styles.search}>
             <input
               type="text"
@@ -52,14 +51,20 @@ const Table = ({ data, columns }) => {
         </div>
       </div>
 
+      <div className={styles.titleContainer}>
+        <TbGridDots color="#011222" size={24} />
+        <p className={styles.desc}>
+          Relátorio de Clientes Cadastrados{" "}
+          <strong>(Total: {data.length})</strong>
+        </p>
+      </div>
+
       <div className={styles.table}>
         <table>
           <thead>
             <tr>
               {columns.map((column) => (
-                <th key={`column${column.field}`} colSpan={column.colSpan || 1}>
-                  {column.title}
-                </th>
+                <th key={`column${column.field}`}>{column.title}</th>
               ))}
             </tr>
           </thead>
@@ -105,11 +110,11 @@ const Table = ({ data, columns }) => {
                         )}
                   </td>
                 ))}
-                <td></td>
               </tr>
             ))}
           </tbody>
         </table>
+        <Pagination />
       </div>
     </section>
   );

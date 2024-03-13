@@ -87,9 +87,6 @@
   justify-content: flex-end;
 }
 
-.CPDataTable footer .pagination {
-}
-
 .CPDataTable footer button {
   border: none;
   padding: 5px;

@@ -1,0 +1,22 @@
+.footer {
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.footer button {
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  background: none;
+  color: var(--bgSoft);
+}
+
+.footer button:disabled {
+  cursor: not-allowed;
+}
+
+.icon:hover {
+  color: #2e374a;
+}
