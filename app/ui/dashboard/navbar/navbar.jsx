@@ -20,6 +20,7 @@ const Navbar = () => {
           />
           <MdSearch />
         </div>
+
         <div className="icons">
           {" "}
           <MdNotifications size={20} />

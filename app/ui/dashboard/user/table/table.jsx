@@ -10,6 +10,20 @@ import Link from "next/link";
 import { CiEdit } from "react-icons/ci";
 import { TbGridDots } from "react-icons/tb";
 import Pagination from "../../pagination/pagination";
+import { FaDownload } from "react-icons/fa";
+import { BsFiletypePdf, BsFiletypeJson, BsFiletypeXml } from "react-icons/bs";
+
+import generatePDF, { Margin } from "react-to-pdf";
+
+const options = {
+  method: "open",
+  page: {
+    margin: Margin.MEDIUM,
+    format: "A4",
+    orientation: "portrait",
+  },
+};
+const targetRef = () => document.getElementById("export");
 
 const Table = ({ data, columns }) => {
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -32,6 +46,13 @@ const Table = ({ data, columns }) => {
       );
     });
   }
+
+  //Pagination
+  const startPoint = (curretPage - 1) * rowsPerPage;
+  const endPoint = curretPage * rowsPerPage;
+  const totalPages = Math.ceil(results.length / rowsPerPage);
+  results = results.slice(startPoint, endPoint);
+
   return (
     <section className={styles.container}>
       <div className={styles.top}>
@@ -52,15 +73,45 @@ const Table = ({ data, columns }) => {
       </div>
 
       <div className={styles.titleContainer}>
-        <TbGridDots color="#011222" size={24} />
-        <p className={styles.desc}>
-          Relátorio de Clientes Cadastrados{" "}
-          <strong>(Total: {data.length})</strong>
-        </p>
+        <div className={styles.titulo}>
+          <TbGridDots color="#011222" size={24} />
+          <p className={styles.desc}>
+            Relátorio de Clientes Cadastrados
+            <strong>(Total: {data.length})</strong>
+          </p>
+        </div>
+        <div className={styles.exportFile}>
+          <label
+            for="export-file"
+            title="Baixar relatorio"
+            className={styles.btnExport}
+          >
+            <FaDownload />
+          </label>
+          <input type="checkbox" name="" id="export-file" />
+          <div className={styles.exportFilesOptions}>
+            <label>Baixar como &nbsp; &#10140;</label>
+            <label
+              for="export-file"
+              onClick={() => generatePDF(targetRef, options)}
+            >
+              PDF
+              <BsFiletypePdf size={32} className={styles.icon} />
+            </label>
+            <label for="export-file">
+              JSON
+              <BsFiletypeJson size={32} className={styles.icon} />
+            </label>
+            <label for="export-file">
+              XML
+              <BsFiletypeXml size={32} className={styles.icon} />
+            </label>
+          </div>
+        </div>
       </div>
 
       <div className={styles.table}>
-        <table>
+        <table id="export">
           <thead>
             <tr>
               {columns.map((column) => (
@@ -69,7 +120,7 @@ const Table = ({ data, columns }) => {
             </tr>
           </thead>
           <tbody>
-            {data.map((dataRow, index) => (
+            {results.map((dataRow, index) => (
               <tr key={`data${index}`}>
                 {columns.map((column, columnIndex) => (
                   <td
@@ -114,7 +165,11 @@ const Table = ({ data, columns }) => {
             ))}
           </tbody>
         </table>
-        <Pagination />
+        <Pagination
+          curretPage={curretPage}
+          totalPages={totalPages}
+          setCurrentPage={setCurrentPage}
+        />
       </div>
     </section>
   );
