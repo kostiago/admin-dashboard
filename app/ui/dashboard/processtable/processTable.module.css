@@ -15,7 +15,11 @@
   justify-content: space-between;
   align-items: center;
 }
-
+.title {
+  margin-bottom: 20px;
+  font-weight: 200;
+  color: var(--textSoft);
+}
 .CPDataTable {
   max-width: 950px;
   margin: 20px 0;

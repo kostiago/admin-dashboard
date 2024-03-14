@@ -53,3 +53,45 @@
   cursor: pointer;
   color: green;
 }
+
+.selectContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.selectContainer select {
+  width: 14rem;
+  height: 2.6rem;
+  padding-left: 15px;
+
+  font-size: 16px;
+  border: 1.9px solid lightgray;
+  border-radius: 4px;
+  color: #39325a;
+  outline: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.title {
+  position: relative;
+  color: #908d92;
+}
+
+.title::before {
+  position: absolute;
+  content: "Filtrar por";
+  top: -29px;
+  left: -207px;
+  background: var(--bgSoftAlternative);
+  width: 60px;
+  height: 15px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.selectContainer .icon {
+  position: relative;
+  left: -30px;
+  pointer-events: none;
+}

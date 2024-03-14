@@ -258,6 +258,7 @@ export const userTable = [
     contact: "regina@email.com",
     processCity: "São Paulo",
     processClient: "1002030",
+    category: "Fisica",
   },
 
   {

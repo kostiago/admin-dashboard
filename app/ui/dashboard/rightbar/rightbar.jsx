@@ -32,18 +32,6 @@ const RightBar = () => {
         <h2 className={styles.title}>Clientes Recentes</h2>
       </div>
 
-      <div className={styles.searchByLetter}>
-        {alphabet.split("").map((letter, index) => (
-          <button
-            className={`${styles.btn} ${styles.myBtn}`}
-            key={index}
-            onClick={() => setSearchByLetter(letter)}
-          >
-            {letter}
-          </button>
-        ))}
-      </div>
-
       <div className={styles.search}>
         <input
           type="text"

@@ -7,6 +7,8 @@ import {
   IoMdArrowDropleftCircle,
   IoMdArrowDroprightCircle,
 } from "react-icons/io";
+import Pagination from "../pagination/pagination";
+import Search from "../search/search";
 
 const ProcessTable = ({ data, columns }) => {
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -53,15 +55,7 @@ const ProcessTable = ({ data, columns }) => {
     <section className={styles.table}>
       <div className={styles.header}>
         <h2 className={styles.title}>Processos Recentes</h2>
-        <div className={styles.search}>
-          <input
-            type="text"
-            placeholder="Pesquise um processo..."
-            className={styles.input}
-            onKeyUp={(e) => setSearchTerm(e.target.value)}
-          />
-          <MdSearch size={20} />
-        </div>
+        <Search />
       </div>
 
       <section className={styles.CPDataTable}>
@@ -102,26 +96,14 @@ const ProcessTable = ({ data, columns }) => {
           </tbody>
         </table>
         <footer>
-          <div className={styles.pagination}>
-            <button
-              onClick={() => {
-                if (curretPage > 1) {
-                  setCurrentPage(curretPage - 1);
-                }
-              }}
-            >
-              <IoMdArrowDropleftCircle size={30} className={styles.icon} />
-            </button>
-            <button
-              onClick={() => {
-                if (curretPage < totalPages) {
-                  setCurrentPage(curretPage + 1);
-                }
-              }}
-            >
-              <IoMdArrowDroprightCircle size={30} className={styles.icon} />
-            </button>
-          </div>
+          <Pagination
+            curretPage={curretPage}
+            totalPages={totalPages}
+            setCurrentPage={setCurrentPage}
+            setRowsPerPage={setRowsPerPage}
+            rowsPerPage={rowsPerPage}
+            showCategoryFilter={false}
+          />
         </footer>
       </section>
     </section>

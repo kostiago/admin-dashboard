@@ -13,6 +13,7 @@ const Pagination = ({
   setCurrentPage,
   setRowsPerPage,
   rowsPerPage,
+  showCategoryFilter,
 }) => {
   const handleFirstPage = () => {
     setCurrentPage(1);
@@ -24,21 +25,25 @@ const Pagination = ({
 
   return (
     <section className={styles.container}>
-      <div className={styles.pages}>
-        <p>
-          Página {curretPage} de {totalPages}
-        </p>
-      </div>
+      {showCategoryFilter && (
+        <div className={styles.pages}>
+          <p>
+            Página {curretPage} de {totalPages}
+          </p>
+        </div>
+      )}
       <div className={styles.icons}>
-        <select
-          value={rowsPerPage}
-          onChange={(e) => setRowsPerPage(Number(e.target.value))}
-        >
-          <option value={5}>5</option>
-          <option value={10}>10</option>
-          <option value={20}>20</option>
-          {/* Adicione outras opções conforme necessário */}
-        </select>
+        {showCategoryFilter && (
+          <select
+            value={rowsPerPage}
+            onChange={(e) => setRowsPerPage(Number(e.target.value))}
+          >
+            <option value={5}>5</option>
+            <option value={10}>10</option>
+            <option value={20}>20</option>
+            {/* Adicione outras opções conforme necessário */}
+          </select>
+        )}
 
         <button onClick={handleFirstPage} disabled={curretPage === 1}>
           <MdKeyboardDoubleArrowLeft size={20} />

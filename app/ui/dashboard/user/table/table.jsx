@@ -4,6 +4,7 @@ import {
   MdOutlineDeleteForever,
   MdOutlineRemoveRedEye,
 } from "react-icons/md";
+
 import styles from "./table.module.css";
 import { useState } from "react";
 import Link from "next/link";
@@ -25,7 +26,7 @@ const options = {
 };
 const targetRef = () => document.getElementById("export");
 
-const Table = ({ data, columns }) => {
+const Table = ({ data, columns, selectedCategory }) => {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [curretPage, setCurrentPage] = useState(1);
 
@@ -34,7 +35,9 @@ const Table = ({ data, columns }) => {
 
   const [searchTerm, setSearchTerm] = useState("");
 
-  let results = data;
+  let results = data.filter(
+    (user) => selectedCategory === "Todos" || user.category === selectedCategory
+  );
 
   if (searchTerm !== "") {
     results = results.filter((dataRow) => {
@@ -94,66 +97,84 @@ const Table = ({ data, columns }) => {
       </div>
 
       <div className={styles.table}>
-        <table id="export">
-          <thead>
-            <tr>
-              {columns.map((column) => (
-                <th key={`column${column.field}`}>{column.title}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {results.map((dataRow, index) => (
-              <tr key={`data${index}`}>
-                {columns.map((column, columnIndex) => (
-                  <td
-                    key={`${index}-${columnIndex}`}
-                    colSpan={column.colSpan || 1}
-                  >
-                    {" "}
-                    {column.field
-                      ? dataRow[column.field]
-                      : columnIndex === columns.length - 1 && (
-                          <div className={styles.buttons}>
-                            <Link href="/">
+        {results.length === 0 ? (
+          <div className={styles.alertContainer}>
+            <div className={styles.alertBox}>
+              <p>Não há usuários cadastrados nesta categoria.</p>
+              <p>
+                Por favor, tente outra categoria ou adicione novos usuários.
+              </p>
+              <Link href="/dashboard/users/newuser">
+                <button className={styles.addButton}>
+                  Cadastrar novo cliente
+                </button>
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <table id="export">
+            <thead>
+              <tr>
+                {columns.map((column) => (
+                  <th key={`column${column.field}`}>{column.title}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {results.map((dataRow, index) => (
+                <tr key={`data${index}`}>
+                  {columns.map((column, columnIndex) => (
+                    <td
+                      key={`${index}-${columnIndex}`}
+                      colSpan={column.colSpan || 1}
+                    >
+                      {" "}
+                      {column.field
+                        ? dataRow[column.field]
+                        : columnIndex === columns.length - 1 && (
+                            <div className={styles.buttons}>
+                              <Link href="/">
+                                <button
+                                  className={`${styles.button} ${styles.view}`}
+                                >
+                                  <MdOutlineRemoveRedEye
+                                    size={18}
+                                    className={styles.icon}
+                                  />
+                                </button>
+                              </Link>
+
                               <button
-                                className={`${styles.button} ${styles.view}`}
+                                className={`${styles.button} ${styles.edit}`}
                               >
-                                <MdOutlineRemoveRedEye
+                                <CiEdit size={18} className={styles.icon} />
+                              </button>
+
+                              <button
+                                className={`${styles.button} ${styles.delete}`}
+                              >
+                                <MdOutlineDeleteForever
                                   size={18}
                                   className={styles.icon}
                                 />
                               </button>
-                            </Link>
+                            </div>
+                          )}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
 
-                            <button
-                              className={`${styles.button} ${styles.edit}`}
-                            >
-                              <CiEdit size={18} className={styles.icon} />
-                            </button>
-
-                            <button
-                              className={`${styles.button} ${styles.delete}`}
-                            >
-                              <MdOutlineDeleteForever
-                                size={18}
-                                className={styles.icon}
-                              />
-                            </button>
-                          </div>
-                        )}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
         <Pagination
           curretPage={curretPage}
           totalPages={totalPages}
           setCurrentPage={setCurrentPage}
           setRowsPerPage={setRowsPerPage}
           rowsPerPage={rowsPerPage}
+          showCategoryFilter={true}
         />
       </div>
     </section>
