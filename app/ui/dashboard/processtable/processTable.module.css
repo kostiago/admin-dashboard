@@ -16,29 +16,6 @@
   align-items: center;
 }
 
-.title {
-  margin-bottom: 20px;
-  font-weight: 200;
-  color: var(--textSoft);
-}
-.search {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background-color: #182536;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-.input {
-  width: 100%;
-  padding: 0 0.5rem 0 0.3rem;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  color: var(--text);
-}
-
 .CPDataTable {
   max-width: 950px;
   margin: 20px 0;

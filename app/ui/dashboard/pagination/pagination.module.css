@@ -1,22 +1,7 @@
 .container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-}
-
-.pagination {
-  display: flex;
   align-items: center;
-  gap: 20px;
-}
-
-.pages {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  padding: 10px;
-  border-radius: 10px;
 }
 
 .icons {
@@ -44,6 +29,11 @@
   color: #2e374a;
 }
 
-.pagination p {
+.pages {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  padding: 10px;
   color: var(--textSoft);
 }

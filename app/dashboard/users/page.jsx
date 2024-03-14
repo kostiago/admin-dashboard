@@ -1,6 +1,8 @@
 import Table from "@/app/ui/dashboard/user/table/table";
 import { userTable } from "@/app/data";
-import { MdSearch } from "react-icons/md";
+import styles from "@/app/ui/dashboard/user/user.module.css";
+import Header from "@/app/ui/dashboard/header/header";
+
 const Users = () => {
   const COLUMNS = [
     {
@@ -29,7 +31,10 @@ const Users = () => {
     },
   ];
   return (
-    <section>
+    <section className={styles.wrapper}>
+      <div className={styles.header}>
+        <Header />
+      </div>
       <div>
         <Table data={userTable} columns={COLUMNS} />
       </div>

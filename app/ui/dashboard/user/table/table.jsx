@@ -55,23 +55,6 @@ const Table = ({ data, columns }) => {
 
   return (
     <section className={styles.container}>
-      <div className={styles.top}>
-        <div className={styles.header}>
-          <div className={styles.search}>
-            <input
-              type="text"
-              placeholder="Pesquise um processo..."
-              className={styles.input}
-              onKeyUp={(e) => setSearchTerm(e.target.value)}
-            />
-            <MdSearch size={20} />
-          </div>
-          <Link href="/dashboard/users/newuser">
-            <button className={styles.addButton}>Cadastrar novo cliente</button>
-          </Link>
-        </div>
-      </div>
-
       <div className={styles.titleContainer}>
         <div className={styles.titulo}>
           <TbGridDots color="#011222" size={24} />
@@ -169,6 +152,8 @@ const Table = ({ data, columns }) => {
           curretPage={curretPage}
           totalPages={totalPages}
           setCurrentPage={setCurrentPage}
+          setRowsPerPage={setRowsPerPage}
+          rowsPerPage={rowsPerPage}
         />
       </div>
     </section>
