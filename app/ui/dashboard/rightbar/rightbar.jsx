@@ -10,7 +10,7 @@ import Search from "../search/search";
 
 const RightBar = () => {
   const [accordionStatus, setAccordionStatus] = useState(
-    new Array(userTable.length).fill(false)
+    new Array(5).fill(false)
   );
 
   const handleClick = (id) => {
@@ -24,6 +24,7 @@ const RightBar = () => {
 
     setAccordionStatus(updateStatus);
   };
+  const lastUsers = userTable.slice(-5);
 
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -36,7 +37,8 @@ const RightBar = () => {
       <Search width="300px" />
 
       <div className={styles.wrapper}>
-        {userTable.map((list, index) => {
+        {lastUsers.map((list, index) => {
+          const id = userTable.length - 5 + index;
           return (
             <Accordion
               id={index}

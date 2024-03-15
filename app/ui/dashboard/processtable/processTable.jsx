@@ -11,17 +11,17 @@ import Pagination from "../pagination/pagination";
 import Search from "../search/search";
 
 const ProcessTable = ({ data, columns }) => {
+  const [searchTerm, setSearchTerm] = useState("");
+
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [curretPage, setCurrentPage] = useState(1);
 
   const [sortColumn, setSortColumn] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
 
-  const [searchTerm, setSearchTerm] = useState("");
-
   let results = data;
 
-  // SEARCH BAR
+  //SEARCH
   if (searchTerm !== "") {
     results = results.filter((dataRow) => {
       return Object.values(dataRow).some((value) =>
@@ -56,7 +56,11 @@ const ProcessTable = ({ data, columns }) => {
       <div className={styles.header}>
         <h2 className={styles.title}>Processos Recentes</h2>
         <div className={styles.test}>
-          <Search width="300px" />
+          <Search
+            width="300px"
+            searchTerm={searchTerm}
+            onChange={setSearchTerm}
+          />
         </div>
       </div>
 

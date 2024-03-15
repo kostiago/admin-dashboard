@@ -1,39 +1,50 @@
 "use client";
 import styles from "./login.module.css";
 import { userTable } from "../data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 
 const Login = () => {
+  const handlePrint = () => {
+    window.print();
+  };
+
   return (
-    <div className={styles.timeline}>
-      {userTable.map((item, i) => (
-        <div className={styles.item}>
-          <div className={styles.content}>
-            <div className={styles.titleAccordeon} onClick={() => toggle(i)}>
-              <h2>{item.name}</h2>
-            </div>
-
-            <div className={styles.contact}>
-              <h3 className={styles.subtitle}>Contato</h3>
-              <p className={styles.text}>{item.contact}</p>
-              <a href="#" className={styles.btn}>
-                ver mais
-              </a>
-            </div>
-
-            <div className={styles.city}>
-              <h3 className={styles.subtitle}>Cidade</h3>
-              <p className={styles.text}>{item.processCity}</p>
-            </div>
-
-            <div className={styles.process}>
-              <h3 className={styles.subtitle}>Cliente em</h3>
-              <p className={styles.text}>{item.processClient}</p>
-            </div>
-          </div>
-        </div>
-      ))}
+    <div>
+      <button onClick={handlePrint}>Imprimir</button>
+      <div className="print-header">
+        <h1>Detalhes do Usuário</h1>
+      </div>
+      <div>
+        <p>
+          <strong>Nome:</strong> João da Silva
+        </p>
+        <p>
+          <strong>Altura:</strong> 1.75m
+        </p>
+        <p>
+          <strong>Telefone:</strong> (11) 99999-9999
+        </p>
+        {/* Adicione mais informações conforme necessário */}
+      </div>
+      <style jsx global>{`
+        .print-header {
+          display: none;
+        }
+        @media print {
+          .print-header {
+            display: block;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+          }
+          h1 {
+            display: none;
+          }
+        }
+      `}</style>
     </div>
   );
 };

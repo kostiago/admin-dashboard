@@ -24,6 +24,10 @@ const COLUMNS = [
     title: "CIDADE/UF",
     field: "processCity",
   },
+  {
+    title: "CATEGORIA",
+    field: "category",
+  },
 
   {
     title: "AÇÕES",
@@ -32,7 +36,13 @@ const COLUMNS = [
 ];
 
 const Users = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
   const [selectedCategory, setSelectedCategory] = useState("Todos");
+
+  const handleSearchChange = (term) => {
+    setSearchTerm(term);
+  };
 
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
@@ -41,12 +51,16 @@ const Users = () => {
   return (
     <section className={styles.wrapper}>
       <div className={styles.header}>
-        <Header handleCategoryChange={handleCategoryChange} />
+        <Header
+          onSearchChange={handleSearchChange}
+          handleCategoryChange={handleCategoryChange}
+        />
       </div>
       <div>
         <Table
           data={userTable}
           columns={COLUMNS}
+          searchTerm={searchTerm}
           selectedCategory={selectedCategory}
         />
       </div>

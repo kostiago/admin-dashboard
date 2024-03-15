@@ -1,39 +1,41 @@
+"use client";
 import Card from "../ui/dashboard/card/card";
 import ProcessTable from "../ui/dashboard/processtable/processTable";
 import styles from "../ui/dashboard/dashboard.module.css";
 import { processTable, userTable } from "../data";
 import RightBar from "../ui/dashboard/rightbar/rightbar";
+import { useState } from "react";
+
+const COLUMNS = [
+  {
+    title: "Nº Processo",
+    field: "processNumber",
+  },
+
+  {
+    title: "Tipo",
+    field: "processType",
+  },
+
+  {
+    title: "Cidade",
+    field: "processCity",
+  },
+
+  {
+    title: "Cliente",
+    field: "processClient",
+  },
+
+  {
+    title: "Parte contraria",
+    field: "oppositePartyProcess",
+  },
+];
 
 const Dashboard = () => {
   const quantUser = userTable.length;
   const quantProcess = processTable.length;
-
-  const COLUMNS = [
-    {
-      title: "Nº Processo",
-      field: "processNumber",
-    },
-
-    {
-      title: "Tipo",
-      field: "processType",
-    },
-
-    {
-      title: "Cidade",
-      field: "processCity",
-    },
-
-    {
-      title: "Cliente",
-      field: "processClient",
-    },
-
-    {
-      title: "Parte contraria",
-      field: "oppositePartyProcess",
-    },
-  ];
 
   return (
     <section className={styles.wrapper}>

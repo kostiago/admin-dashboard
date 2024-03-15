@@ -6,6 +6,7 @@ import {
 } from "react-icons/md";
 
 import styles from "./table.module.css";
+
 import { useState } from "react";
 import Link from "next/link";
 import { CiEdit } from "react-icons/ci";

@@ -1,6 +1,7 @@
 .container {
   position: relative;
   top: 40;
+  height: 100vh;
 }
 
 .user {
@@ -27,6 +28,7 @@
 
 .list {
   list-style: none;
+  overflow-y: auto;
 }
 
 .cat {

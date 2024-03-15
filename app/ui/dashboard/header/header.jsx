@@ -8,7 +8,10 @@ import { IoFilterSharp } from "react-icons/io5";
 import { GrHelpBook } from "react-icons/gr";
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 
-const Header = ({ handleCategoryChange }) => {
+const Header = ({ handleCategoryChange, onSearchChange }) => {
+  const handleSearchChange = (term) => {
+    onSearchChange(term);
+  };
   return (
     <div className={styles.container}>
       <div className={styles.titleContainer}>
@@ -24,7 +27,7 @@ const Header = ({ handleCategoryChange }) => {
       </div>
 
       <div className={styles.header}>
-        <Search />
+        <Search onChange={handleSearchChange} />
 
         <div className={styles.selectContainer}>
           <select name="" id="" onChange={handleCategoryChange}>
