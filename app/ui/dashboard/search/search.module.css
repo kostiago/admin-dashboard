@@ -2,9 +2,10 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background-color: #182536;
+  background-color: #2e374a;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 4px;
+  width: 500px;
 }
 
 .input {
@@ -13,5 +14,5 @@
   background-color: transparent;
   border: none;
   outline: none;
-  color: var(--text);
+  color: var(--textSoft);
 }

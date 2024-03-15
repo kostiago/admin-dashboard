@@ -6,6 +6,7 @@ import Link from "next/link";
 import Search from "../search/search";
 import { IoFilterSharp } from "react-icons/io5";
 import { GrHelpBook } from "react-icons/gr";
+import { AiOutlineUsergroupAdd } from "react-icons/ai";
 
 const Header = ({ handleCategoryChange }) => {
   return (
@@ -16,9 +17,9 @@ const Header = ({ handleCategoryChange }) => {
           <p className={styles.desc}>Filtros</p>
         </div>
         <div className={styles.exportFile}>
-          <button>
-            <GrHelpBook size={18} /> <span>Ajuda</span>
-          </button>
+          <label for="export-file" title="Ajuda" className={styles.btnExport}>
+            <GrHelpBook size={16} />
+          </label>
         </div>
       </div>
 
@@ -38,12 +39,15 @@ const Header = ({ handleCategoryChange }) => {
             color="#39325a"
           />
         </div>
-        <div>
-          <button className={styles.btn}>asdasdasdasdasdasd</button>
-        </div>
+
         <div>
           <Link href="/dashboard/users/newuser">
-            <button className={styles.btn}>Cadastrar novo cliente</button>
+            <button className={styles.btn}>
+              <span className={styles.buttonIcon}>
+                <AiOutlineUsergroupAdd size={22} />
+              </span>
+              <span className={styles.btnText}>Novo Usuario</span>
+            </button>
           </Link>
         </div>
       </div>

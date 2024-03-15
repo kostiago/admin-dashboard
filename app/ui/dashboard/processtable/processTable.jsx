@@ -55,7 +55,9 @@ const ProcessTable = ({ data, columns }) => {
     <section className={styles.table}>
       <div className={styles.header}>
         <h2 className={styles.title}>Processos Recentes</h2>
-        <Search />
+        <div className={styles.test}>
+          <Search width="300px" />
+        </div>
       </div>
 
       <section className={styles.CPDataTable}>

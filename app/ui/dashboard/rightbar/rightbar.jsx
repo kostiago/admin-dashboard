@@ -6,6 +6,7 @@ import { userTable } from "../../../data";
 import { useState } from "react";
 import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 import Accordion from "../../accordion/accordion";
+import Search from "../search/search";
 
 const RightBar = () => {
   const [accordionStatus, setAccordionStatus] = useState(
@@ -32,14 +33,7 @@ const RightBar = () => {
         <h2 className={styles.title}>Clientes Recentes</h2>
       </div>
 
-      <div className={styles.search}>
-        <input
-          type="text"
-          placeholder="Pesquise um processo..."
-          className={styles.input}
-        />
-        <MdSearch size={20} />
-      </div>
+      <Search width="300px" />
 
       <div className={styles.wrapper}>
         {userTable.map((list, index) => {

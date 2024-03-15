@@ -1,6 +1,5 @@
 .container {
   background-color: var(--bgSoftAlternative);
-
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
 }
@@ -65,7 +64,7 @@
   padding-left: 15px;
 
   font-size: 16px;
-  border: 1.9px solid lightgray;
+  border: 1.9px solid #2e374a;
   border-radius: 4px;
   color: #39325a;
   outline: none;
@@ -94,4 +93,35 @@
   position: relative;
   left: -30px;
   pointer-events: none;
+}
+
+.btn {
+  display: inline-flex;
+  height: 50px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  overflow: hidden;
+  font-size: 14px;
+  color: var(--textSoft);
+  cursor: pointer;
+  font-weight: 500;
+}
+.btn:hover {
+  transform: scale(1.15);
+  color: #008168;
+}
+
+.btnText,
+.buttonIcon {
+  display: inline-flex;
+  align-items: center;
+
+  height: 100%;
+}
+
+.buttonIcon {
+  background: transparent;
 }
