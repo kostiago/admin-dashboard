@@ -4,6 +4,9 @@ import { userTable } from "@/app/data";
 import styles from "@/app/ui/dashboard/user/user.module.css";
 import Header from "@/app/ui/dashboard/header/header";
 import { useState } from "react";
+import Button from "@/app/ui/buttons/buttons";
+import { IoPersonAddOutline } from "react-icons/io5";
+import Link from "next/link";
 const COLUMNS = [
   {
     title: "ID",
@@ -36,6 +39,8 @@ const COLUMNS = [
 ];
 
 const Users = () => {
+  const placeholder = "Pesquise por um cliente";
+
   const [searchTerm, setSearchTerm] = useState("");
 
   const [selectedCategory, setSelectedCategory] = useState("Todos");
@@ -54,7 +59,17 @@ const Users = () => {
         <Header
           onSearchChange={handleSearchChange}
           handleCategoryChange={handleCategoryChange}
-        />
+          placeholder={placeholder}
+        >
+          <div>
+            {" "}
+            <Link href="/dashboard/users/add">
+              <Button rounded variant="addUser" icon={IoPersonAddOutline}>
+                Cadastrar Usuario
+              </Button>
+            </Link>
+          </div>
+        </Header>
       </div>
       <div>
         <Table
@@ -62,6 +77,7 @@ const Users = () => {
           columns={COLUMNS}
           searchTerm={searchTerm}
           selectedCategory={selectedCategory}
+          title="Relátorio de Clientes Cadastrados"
         />
       </div>
     </section>

@@ -94,34 +94,3 @@
   left: -30px;
   pointer-events: none;
 }
-
-.btn {
-  display: inline-flex;
-  height: 50px;
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  overflow: hidden;
-  font-size: 14px;
-  color: var(--textSoft);
-  cursor: pointer;
-  font-weight: 500;
-}
-.btn:hover {
-  transform: scale(1.15);
-  color: #008168;
-}
-
-.btnText,
-.buttonIcon {
-  display: inline-flex;
-  align-items: center;
-
-  height: 100%;
-}
-
-.buttonIcon {
-  background: transparent;
-}

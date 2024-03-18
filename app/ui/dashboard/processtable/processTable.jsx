@@ -1,16 +1,16 @@
 "use client";
-import { MdSearch } from "react-icons/md";
+
 import styles from "./processTable.module.css";
 import { useState } from "react";
-
-import {
-  IoMdArrowDropleftCircle,
-  IoMdArrowDroprightCircle,
-} from "react-icons/io";
+import Link from "next/link";
+import { PiSealWarning } from "react-icons/pi";
 import Pagination from "../pagination/pagination";
 import Search from "../search/search";
+import Button from "../../buttons/buttons";
 
 const ProcessTable = ({ data, columns }) => {
+  const placeholder = "Pesquise por um processo";
+
   const [searchTerm, setSearchTerm] = useState("");
 
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -57,6 +57,7 @@ const ProcessTable = ({ data, columns }) => {
         <h2 className={styles.title}>Processos Recentes</h2>
         <div className={styles.test}>
           <Search
+            placeholder={placeholder}
             width="300px"
             searchTerm={searchTerm}
             onChange={setSearchTerm}
@@ -65,42 +66,61 @@ const ProcessTable = ({ data, columns }) => {
       </div>
 
       <section className={styles.CPDataTable}>
-        <table>
-          <thead>
-            <tr>
-              {columns.map((column) => (
-                <th key={`columns${column.field}`}>
-                  <button
-                    onClick={() => {
-                      if (sortColumn === column.field) {
-                        if (sortOrder === "asc") {
-                          setSortOrder("desc");
+        {results.length === 0 ? (
+          <div className={styles.alertContainer}>
+            <div className={styles.alertBox}>
+              <PiSealWarning size={100} color="#000" />
+              <p>Não há processos cadastrados.</p>
+              <p>Por favor, tente novamente ou adicione novos processos.</p>
+
+              <div className={styles.linkAdd}>
+                <Link href="/dashboard/users/newuser">
+                  <Button rounded variant="primary">
+                    Cadastrar Processo
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <table>
+            <thead>
+              <tr>
+                {columns.map((column) => (
+                  <th key={`columns${column.field}`}>
+                    <button
+                      onClick={() => {
+                        if (sortColumn === column.field) {
+                          if (sortOrder === "asc") {
+                            setSortOrder("desc");
+                          } else {
+                            setSortOrder("asc");
+                          }
                         } else {
+                          setSortColumn(column.field);
                           setSortOrder("asc");
                         }
-                      } else {
-                        setSortColumn(column.field);
-                        setSortOrder("asc");
-                      }
-                    }}
-                  >
-                    {column.title}
-                  </button>
-                </th>
-              ))}
-            </tr>
-          </thead>
-
-          <tbody>
-            {results.map((dataRow, index) => (
-              <tr key={`data${index}`}>
-                {columns.map((column) => (
-                  <td>{dataRow[column.field]}</td>
+                      }}
+                    >
+                      {column.title}
+                    </button>
+                  </th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+
+            <tbody>
+              {results.map((dataRow, index) => (
+                <tr key={`data${index}`}>
+                  {columns.map((column) => (
+                    <td>{dataRow[column.field]}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+
         <footer>
           <Pagination
             curretPage={curretPage}

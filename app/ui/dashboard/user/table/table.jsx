@@ -1,9 +1,6 @@
 "use client";
-import {
-  MdSearch,
-  MdOutlineDeleteForever,
-  MdOutlineRemoveRedEye,
-} from "react-icons/md";
+import { MdOutlineDeleteForever, MdOutlineRemoveRedEye } from "react-icons/md";
+import { PiSealWarning } from "react-icons/pi";
 
 import styles from "./table.module.css";
 import { useState } from "react";
@@ -15,6 +12,7 @@ import { FaDownload } from "react-icons/fa";
 import { BsFiletypePdf, BsFiletypeJson, BsFiletypeXml } from "react-icons/bs";
 
 import generatePDF, { Margin } from "react-to-pdf";
+import Button from "@/app/ui/buttons/buttons";
 
 const options = {
   method: "open",
@@ -26,7 +24,7 @@ const options = {
 };
 const targetRef = () => document.getElementById("export");
 
-const Table = ({ data, columns, selectedCategory, searchTerm }) => {
+const Table = ({ data, columns, selectedCategory, searchTerm, title }) => {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [curretPage, setCurrentPage] = useState(1);
 
@@ -81,7 +79,7 @@ const Table = ({ data, columns, selectedCategory, searchTerm }) => {
         <div className={styles.titulo}>
           <TbGridDots color="#011222" size={24} />
           <p className={styles.desc}>
-            Relátorio de Clientes Cadastrados
+            {title}
             <strong>(Total: {data.length})</strong>
           </p>
         </div>
@@ -115,14 +113,13 @@ const Table = ({ data, columns, selectedCategory, searchTerm }) => {
         {results.length === 0 ? (
           <div className={styles.alertContainer}>
             <div className={styles.alertBox}>
-              <p>Não há usuários cadastrados nesta categoria.</p>
-              <p>
-                Por favor, tente outra categoria ou adicione novos usuários.
-              </p>
+              <PiSealWarning size={100} color="#000" />
+              <p>Não há usuários cadastrados.</p>
+              <p>Por favor, tente novamente ou adicione novos usuários.</p>
               <Link href="/dashboard/users/newuser">
-                <button className={styles.addButton}>
-                  Cadastrar novo cliente
-                </button>
+                <Button rounded variant="primary">
+                  Cadastrar Usuario
+                </Button>
               </Link>
             </div>
           </div>
@@ -163,7 +160,7 @@ const Table = ({ data, columns, selectedCategory, searchTerm }) => {
                         ? dataRow[column.field]
                         : columnIndex === columns.length - 1 && (
                             <div className={styles.buttons}>
-                              <Link href="/">
+                              <Link href="batata">
                                 <button
                                   className={`${styles.button} ${styles.view}`}
                                 >

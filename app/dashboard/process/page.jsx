@@ -1,11 +1,15 @@
 "use client";
 
-import { userTable } from "@/app/data";
+import { processTable } from "@/app/data";
 import styles from "@/app/ui/dashboard/process/process.module.css";
 import { useState } from "react";
 
 import Header from "@/app/ui/dashboard/header/header";
-import Table from "@/app/ui/dashboard/process/table/table";
+
+import Button from "@/app/ui/buttons/buttons";
+import { AiOutlinePlus } from "react-icons/ai";
+import Table from "@/app/ui/dashboard/user/table/table";
+import Link from "next/link";
 const COLUMNS = [
   {
     title: "ID",
@@ -13,13 +17,23 @@ const COLUMNS = [
   },
 
   {
-    title: "NOME/RAZÃO SOCIAL",
-    field: "name",
+    title: "Nº PROCESSO",
+    field: "processNumber",
   },
 
   {
-    title: "CONTATO",
-    field: "contact",
+    title: "TIPO",
+    field: "processType",
+  },
+
+  {
+    title: "AÇÃO DO PROCESSO",
+    field: "processAction",
+  },
+
+  {
+    title: "COMARCA",
+    field: "judicialDistrict",
   },
 
   {
@@ -27,8 +41,8 @@ const COLUMNS = [
     field: "processCity",
   },
   {
-    title: "CATEGORIA",
-    field: "category",
+    title: "CLIENTE",
+    field: "processClient",
   },
 
   {
@@ -38,6 +52,8 @@ const COLUMNS = [
 ];
 
 const Process = () => {
+  const placeholder = "Pesquise por um processo";
+
   const [searchTerm, setSearchTerm] = useState("");
 
   const [selectedCategory, setSelectedCategory] = useState("Todos");
@@ -54,16 +70,29 @@ const Process = () => {
     <section className={styles.wrapper}>
       <div className={styles.header}>
         <Header
+          placeholder={placeholder}
+          color="#F2DDA4"
           onSearchChange={handleSearchChange}
           handleCategoryChange={handleCategoryChange}
-        />
+        >
+          <div>
+            {" "}
+            <Link href="/dashboard/process/add">
+              <Button rounded variant="addUser" icon={AiOutlinePlus}>
+                Cadastrar Processo
+              </Button>
+            </Link>
+          </div>
+        </Header>
       </div>
+
       <div>
         <Table
-          data={userTable}
+          data={processTable}
           columns={COLUMNS}
           searchTerm={searchTerm}
           selectedCategory={selectedCategory}
+          title="Relátorio de Processos Cadastrados"
         />
       </div>
     </section>

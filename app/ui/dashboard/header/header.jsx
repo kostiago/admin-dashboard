@@ -7,14 +7,21 @@ import Search from "../search/search";
 import { IoFilterSharp } from "react-icons/io5";
 import { GrHelpBook } from "react-icons/gr";
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
+import Button from "../../buttons/buttons";
 
-const Header = ({ handleCategoryChange, onSearchChange }) => {
+const Header = ({
+  handleCategoryChange,
+  onSearchChange,
+  color,
+  placeholder,
+  children,
+}) => {
   const handleSearchChange = (term) => {
     onSearchChange(term);
   };
   return (
     <div className={styles.container}>
-      <div className={styles.titleContainer}>
+      <div className={styles.titleContainer} style={{ backgroundColor: color }}>
         <div className={styles.titulo}>
           <IoFilterSharp color="#011222" size={24} />
           <p className={styles.desc}>Filtros</p>
@@ -27,7 +34,7 @@ const Header = ({ handleCategoryChange, onSearchChange }) => {
       </div>
 
       <div className={styles.header}>
-        <Search onChange={handleSearchChange} />
+        <Search onChange={handleSearchChange} placeholder={placeholder} />
 
         <div className={styles.selectContainer}>
           <select name="" id="" onChange={handleCategoryChange}>
@@ -43,16 +50,7 @@ const Header = ({ handleCategoryChange, onSearchChange }) => {
           />
         </div>
 
-        <div>
-          <Link href="/dashboard/users/newuser">
-            <button className={styles.btn}>
-              <span className={styles.buttonIcon}>
-                <AiOutlineUsergroupAdd size={22} />
-              </span>
-              <span className={styles.btnText}>Novo Usuario</span>
-            </button>
-          </Link>
-        </div>
+        {children}
       </div>
     </div>
   );
